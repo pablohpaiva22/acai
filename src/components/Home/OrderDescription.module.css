@@ -1,0 +1,16 @@
+.itensList {
+  min-height: 400px;
+  margin-bottom: 2rem;
+}
+
+.itensList li {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.itensList li p {
+  font-size: 1rem;
+  border: 1px solid #000;
+  margin-bottom: 0.25rem;
+  padding-left: 0.25rem;
+}

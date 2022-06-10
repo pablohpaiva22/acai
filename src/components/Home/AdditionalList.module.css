@@ -1,0 +1,18 @@
+.additional {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+  justify-content: center;
+}
+
+.additional li {
+  flex: 1 0 160px;
+  max-width: 200px;
+  padding: 1rem;
+  text-align: center;
+  background: #662d91;
+  color: #fff;
+  border-radius: 0.25rem;
+  border: 1px solid #000;
+}

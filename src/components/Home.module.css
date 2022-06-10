@@ -1,3 +1,46 @@
 .home {
-  height: 80vh;
+  min-height: 80vh;
+  display: grid;
+  grid-template-columns: 2.2fr 0.8fr;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.choose {
+  border: 1px solid #662d91;
+}
+
+.description {
+  border: 1px solid #662d91;
+  padding: 1rem;
+}
+
+.title {
+  color: #662d91;
+  text-align: center;
+  margin: 1rem;
+}
+
+.total {
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.valor {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.btn {
+  display: block;
+  font-size: 1.5rem;
+  margin: 2rem auto 0;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  background: #662d91;
+  color: #fff;
+}
+
+.titleDescription {
+  margin-bottom: 1rem;
 }
