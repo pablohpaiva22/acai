@@ -33,7 +33,11 @@ const itemsList = [
 
 const Home = () => {
   const arrayDescription = [];
+  const arrayTotal = [];
+
   const [target, setTarget] = React.useState([]);
+  const [soma, setSoma] = React.useState([]);
+  const [total, setTotal] = React.useState(0);
 
   const handleClick = (e) => {
     const filtrar = itemsList.filter((item) => {
@@ -42,6 +46,15 @@ const Home = () => {
 
     arrayDescription.push(...target, ...filtrar);
     setTarget(arrayDescription);
+
+    arrayTotal.push(...soma, filtrar[0].price);
+    setSoma(arrayTotal);
+
+    const valorFinal = arrayTotal.reduce((acc, value) => {
+      return acc + value;
+    });
+
+    setTotal(valorFinal);
   };
 
   return (
@@ -63,7 +76,7 @@ const Home = () => {
 
         <h3 className={styles.total}>TOTAL</h3>
 
-        <p className={styles.valor}>R$ 200,00</p>
+        <p className={styles.valor}>{`R$ ${total}`}</p>
 
         <button className={styles.btn}>Finalizar Pedido</button>
       </div>
