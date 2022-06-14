@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./OrderDescription.module.css";
 
-const Description = ({ itemsArray }) => {
+const Description = ({ list }) => {
   return (
     <>
       <ul className={styles.itensList}>
-        {itemsArray.map((item, index) => {
+        {list.map((item, index) => {
           return (
             <li key={index}>
               <p>{item.name}</p>

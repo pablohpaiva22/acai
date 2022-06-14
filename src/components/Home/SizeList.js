@@ -1,13 +1,15 @@
 import React from "react";
 import styles from "./SizeList.module.css";
 
-const acaiSize = ["1 litro", "750 ml", "500 ml", "400 ml", "300 ml"];
-
-const Size = () => {
+const Size = ({ onClick, sizeList_DB }) => {
   return (
     <ul className={styles.size}>
-      {acaiSize.map((item) => {
-        return <li key={item}>{item}</li>;
+      {sizeList_DB.map((item, index) => {
+        return (
+          <li onClick={onClick} key={index}>
+            {item.name}
+          </li>
+        );
       })}
     </ul>
   );
