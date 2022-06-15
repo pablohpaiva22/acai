@@ -7,7 +7,6 @@ import { sizeList_DB, Increment_DB } from "./Home/databaseHome";
 import OrderSize from "./Home/OrderSize";
 
 const Home = () => {
-  const totalIncrement_DB = [];
   const [total, setTotal] = React.useState(0);
 
   const size_DB = [];
@@ -15,9 +14,9 @@ const Home = () => {
   const [size, setSize] = React.useState([]);
   const [totalSize, setTotalSize] = React.useState(0);
 
+  const totalIncrement_DB = [];
   const increment_DB = [];
-  const totalIncremnet_DB = [];
-  const [increment, setList] = React.useState([]);
+  const [increment, setIncrement] = React.useState([]);
   const [totalIncrement, setTotalIncrement] = React.useState(0);
 
   const showSize = (e, data) => {
@@ -44,9 +43,9 @@ const Home = () => {
     });
 
     increment_DB.push(...increment, ...getTarget);
-    setList(increment_DB);
+    setIncrement(increment_DB);
 
-    totalIncrement_DB.push(...totalIncremnet_DB, getTarget[0].price);
+    totalIncrement_DB.push(totalIncrement, getTarget[0].price);
 
     const finalValue = totalIncrement_DB.reduce((acc, value) => {
       return acc + value;
