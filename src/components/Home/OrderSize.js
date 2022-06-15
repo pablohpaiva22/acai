@@ -6,7 +6,11 @@ const OrderSize = ({ size }) => {
     <div className={styles.sizeContainer}>
       <h3 className={styles.title}>Tamanho</h3>
       {size.map((item, index) => {
-        return <p key={index}>{item.name}</p>;
+        return (
+          <p className={styles.size} key={index}>
+            {item.name}
+          </p>
+        );
       })}
     </div>
   );

@@ -1,11 +1,16 @@
 .itensList {
-  min-height: 400px;
+  min-height: 416px;
   margin-bottom: 2rem;
+}
+
+.title {
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
 }
 
 .itensList li {
   display: flex;
-  gap: 0.25rem;
+  gap: 1rem;
 }
 
 .itensList li p {

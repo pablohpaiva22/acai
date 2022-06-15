@@ -1,3 +1,7 @@
 .sizeContainer {
-  margin-bottom: 1rem;
+  min-height: 3rem;
+}
+
+.title {
+  margin: 0.125rem 0;
 }

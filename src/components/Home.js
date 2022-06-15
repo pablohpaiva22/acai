@@ -82,6 +82,7 @@ const Home = () => {
         <h2 className={styles.secondBoxTitle}>Descrição do Pedido</h2>
 
         <OrderSize size={size} />
+
         <OrderIncrement increment={increment} />
 
         <h3 className={styles.secondBoxSubtitle}>TOTAL</h3>

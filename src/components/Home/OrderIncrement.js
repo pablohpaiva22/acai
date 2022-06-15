@@ -4,7 +4,7 @@ import styles from "./OrderIncrement.module.css";
 const Order = ({ increment }) => {
   return (
     <>
-      <h3>Adicionais</h3>
+      <h3 className={styles.title}>Adicionais</h3>
       <ul className={styles.itensList}>
         {increment.map((item, index) => {
           return (
