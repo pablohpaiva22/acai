@@ -1,11 +1,12 @@
 import React from "react";
-import styles from "./OrderDescription.module.css";
+import styles from "./OrderIncrement.module.css";
 
-const Description = ({ list }) => {
+const Order = ({ increment }) => {
   return (
     <>
+      <h3>Adicionais</h3>
       <ul className={styles.itensList}>
-        {list.map((item, index) => {
+        {increment.map((item, index) => {
           return (
             <li key={index}>
               <p>{item.name}</p>
@@ -18,4 +19,4 @@ const Description = ({ list }) => {
   );
 };
 
-export default Description;
+export default Order;

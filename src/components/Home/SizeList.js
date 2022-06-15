@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./SizeList.module.css";
 
-const Size = ({ onClick, sizeList_DB }) => {
+const SizeList = ({ onClick, sizeList_DB }) => {
   return (
-    <ul className={styles.size}>
+    <ul className={styles.container}>
       {sizeList_DB.map((item, index) => {
         return (
           <li onClick={onClick} key={index}>
@@ -15,4 +15,4 @@ const Size = ({ onClick, sizeList_DB }) => {
   );
 };
 
-export default Size;
+export default SizeList;

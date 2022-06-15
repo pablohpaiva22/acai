@@ -1,49 +1,67 @@
 import React from "react";
 import styles from "./Home.module.css";
-import AdditionalList from "./Home/AdditionalList";
-import OrderDescription from "./Home/OrderDescription";
+import IncrementList from "./Home/IncrementList";
+import OrderIncrement from "./Home/OrderIncrement";
 import SizeList from "./Home/SizeList";
-import { sizeList_DB, AdditionalList_DB } from "./Home/databaseHome";
+import { sizeList_DB, Increment_DB } from "./Home/databaseHome";
+import OrderSize from "./Home/OrderSize";
 
 const Home = () => {
-  const description = [];
-  const totalDB = [];
-
-  const [list, setList] = React.useState([]);
-  const [soma, setSoma] = React.useState([]);
+  const totalIncrement_DB = [];
   const [total, setTotal] = React.useState(0);
 
-  const showDescriptionData = (e, data) => {
-    const filtrar = data.filter((item) => {
+  const size_DB = [];
+  const totalSize_DB = [];
+  const [size, setSize] = React.useState([]);
+  const [totalSize, setTotalSize] = React.useState(0);
+
+  const increment_DB = [];
+  const totalIncremnet_DB = [];
+  const [increment, setList] = React.useState([]);
+  const [totalIncrement, setTotalIncrement] = React.useState(0);
+
+  const showSize = (e, data) => {
+    const getTarget = data.filter((item) => {
       return item.name === e.target.innerText;
     });
 
-    const descriptionList = () => {
-      description.push(...list, ...filtrar);
-      setList(description);
-    };
+    size_DB.push(...getTarget);
+    setSize(size_DB);
 
-    const descriptionTotal = () => {
-      totalDB.push(...soma, filtrar[0].price);
-      setSoma(totalDB);
+    totalSize_DB.push(getTarget[0].price);
 
-      const valorFinal = totalDB.reduce((acc, value) => {
-        return acc + value;
-      });
+    const finalValue = totalSize_DB.reduce((acc, value) => {
+      return acc + value;
+    });
 
-      setTotal(valorFinal);
-    };
+    setTotalSize(finalValue);
+    setTotal(finalValue + totalIncrement);
+  };
 
-    descriptionList();
-    descriptionTotal();
+  const showIncrement = (e, data) => {
+    const getTarget = data.filter((item) => {
+      return item.name === e.target.innerText;
+    });
+
+    increment_DB.push(...increment, ...getTarget);
+    setList(increment_DB);
+
+    totalIncrement_DB.push(...totalIncremnet_DB, getTarget[0].price);
+
+    const finalValue = totalIncrement_DB.reduce((acc, value) => {
+      return acc + value;
+    });
+
+    setTotalIncrement(finalValue);
+    setTotal(finalValue + totalSize);
   };
 
   const handleSizeListClick = (e) => {
-    showDescriptionData(e, sizeList_DB);
+    showSize(e, sizeList_DB);
   };
 
-  const handleAdditionalListClick = (e) => {
-    showDescriptionData(e, AdditionalList_DB);
+  const handleIncrementListClick = (e) => {
+    showIncrement(e, Increment_DB);
   };
 
   return (
@@ -55,16 +73,17 @@ const Home = () => {
 
         <h3 className={styles.firstBoxTitle}>ADICIONAIS</h3>
 
-        <AdditionalList
-          AdditionalList_DB={AdditionalList_DB}
-          onClick={handleAdditionalListClick}
+        <IncrementList
+          Increment_DB={Increment_DB}
+          onClick={handleIncrementListClick}
         />
       </div>
 
       <div className={styles.secondBox}>
-        <h2 className={styles.secondBoxTitle}>Descrição do pedido</h2>
+        <h2 className={styles.secondBoxTitle}>Descrição do Pedido</h2>
 
-        <OrderDescription list={list} />
+        <OrderSize size={size} />
+        <OrderIncrement increment={increment} />
 
         <h3 className={styles.secondBoxSubtitle}>TOTAL</h3>
 
