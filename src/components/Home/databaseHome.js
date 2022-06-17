@@ -6,7 +6,7 @@ export const sizeList_DB = [
   { name: "1 litro", price: 10 },
 ];
 
-export const Increment_DB = [
+export const IncrementList_DB = [
   { name: "Aveia", price: 1.5 },
   { name: "Beijinho", price: 1.0 },
   { name: "Bis", price: 2 },

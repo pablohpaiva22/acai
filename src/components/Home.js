@@ -3,7 +3,7 @@ import styles from "./Home.module.css";
 import IncrementList from "./Home/IncrementList";
 import OrderIncrement from "./Home/OrderIncrement";
 import SizeList from "./Home/SizeList";
-import { sizeList_DB, Increment_DB } from "./Home/databaseHome";
+import { sizeList_DB, IncrementList_DB } from "./Home/databaseHome";
 import OrderSize from "./Home/OrderSize";
 
 const Home = () => {
@@ -18,7 +18,6 @@ const Home = () => {
   const [increment, setIncrement] = React.useState([]);
   const [totalIncrement, setTotalIncrement] = React.useState(0);
 
-  const [ativar, setAtivar] = React.useState(false);
   const [target, setTarget] = React.useState("");
 
   // --------------------------------------------------------------------------------------
@@ -53,16 +52,16 @@ const Home = () => {
     });
 
     const removingDuplicates = new Set(tranformingToJson);
-    const ArrayNoDuplicates = Array.from(removingDuplicates).map(JSON.parse);
+    const tranformingToObject = Array.from(removingDuplicates).map(JSON.parse);
 
-    setIncrement(ArrayNoDuplicates);
+    setIncrement(tranformingToObject);
 
-    const nameList = ArrayNoDuplicates.map((item) => item.name);
+    const nameList = tranformingToObject.map((item) => item.name);
     setTarget(nameList);
 
     //---------
 
-    const IncrementTotal = ArrayNoDuplicates.map((item) => {
+    const IncrementTotal = tranformingToObject.map((item) => {
       return item.price;
     });
 
@@ -81,15 +80,7 @@ const Home = () => {
   };
 
   const handleIncrementListClick = (e) => {
-    if (!ativar) {
-      setAtivar(true);
-    }
-
-    if (ativar) {
-      setAtivar(false);
-    }
-
-    showIncrement(e, Increment_DB);
+    showIncrement(e, IncrementList_DB);
   };
 
   // --------------------------------------------------------------------------------------
@@ -105,7 +96,7 @@ const Home = () => {
 
         <IncrementList
           target={target}
-          Increment_DB={Increment_DB}
+          Increment_DB={IncrementList_DB}
           onClick={handleIncrementListClick}
         />
       </div>
