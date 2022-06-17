@@ -14,10 +14,14 @@ const Home = () => {
   const [size, setSize] = React.useState([]);
   const [totalSize, setTotalSize] = React.useState(0);
 
-  const totalIncrement_DB = [];
   const increment_DB = [];
   const [increment, setIncrement] = React.useState([]);
   const [totalIncrement, setTotalIncrement] = React.useState(0);
+
+  const [ativar, setAtivar] = React.useState(false);
+  const [target, setTarget] = React.useState("");
+
+  // --------------------------------------------------------------------------------------
 
   const showSize = (e, data) => {
     const getTarget = data.filter((item) => {
@@ -29,13 +33,11 @@ const Home = () => {
 
     totalSize_DB.push(getTarget[0].price);
 
-    const finalValue = totalSize_DB.reduce((acc, value) => {
-      return acc + value;
-    });
-
-    setTotalSize(finalValue);
-    setTotal(finalValue + totalIncrement);
+    setTotalSize(totalSize_DB[0]);
+    setTotal(totalSize_DB[0] + totalIncrement);
   };
+
+  // ----------------------------------------------------------------------------------------
 
   const showIncrement = (e, data) => {
     const getTarget = data.filter((item) => {
@@ -43,11 +45,28 @@ const Home = () => {
     });
 
     increment_DB.push(...increment, ...getTarget);
-    setIncrement(increment_DB);
 
-    totalIncrement_DB.push(totalIncrement, getTarget[0].price);
+    //-----------------
 
-    const finalValue = totalIncrement_DB.reduce((acc, value) => {
+    const tranformingToJson = increment_DB.map((item) => {
+      return JSON.stringify(item);
+    });
+
+    const removingDuplicates = new Set(tranformingToJson);
+    const ArrayNoDuplicates = Array.from(removingDuplicates).map(JSON.parse);
+
+    setIncrement(ArrayNoDuplicates);
+
+    const nameList = ArrayNoDuplicates.map((item) => item.name);
+    setTarget(nameList);
+
+    //---------
+
+    const IncrementTotal = ArrayNoDuplicates.map((item) => {
+      return item.price;
+    });
+
+    const finalValue = IncrementTotal.reduce((acc, value) => {
       return acc + value;
     });
 
@@ -55,13 +74,25 @@ const Home = () => {
     setTotal(finalValue + totalSize);
   };
 
+  // --------------------------------------------------------------------------------------
+
   const handleSizeListClick = (e) => {
     showSize(e, sizeList_DB);
   };
 
   const handleIncrementListClick = (e) => {
+    if (!ativar) {
+      setAtivar(true);
+    }
+
+    if (ativar) {
+      setAtivar(false);
+    }
+
     showIncrement(e, Increment_DB);
   };
+
+  // --------------------------------------------------------------------------------------
 
   return (
     <main className={`${styles.home} container`}>
@@ -73,6 +104,7 @@ const Home = () => {
         <h3 className={styles.firstBoxTitle}>ADICIONAIS</h3>
 
         <IncrementList
+          target={target}
           Increment_DB={Increment_DB}
           onClick={handleIncrementListClick}
         />
