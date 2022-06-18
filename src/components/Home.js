@@ -20,7 +20,7 @@ const Home = () => {
 
   const [target, setTarget] = React.useState("");
 
-  // --------------------------------------------------------------------------------------
+  // ----------------------------------------------------------------------------------
 
   const showSize = (e, data) => {
     const getTarget = data.filter((item) => {
@@ -36,44 +36,68 @@ const Home = () => {
     setTotal(totalSize_DB[0] + totalIncrement);
   };
 
-  // ----------------------------------------------------------------------------------------
+  // ----------------------------------------------------------------------------------
 
   const showIncrement = (e, data) => {
     const getTarget = data.filter((item) => {
       return item.name === e.target.innerText;
     });
 
-    increment_DB.push(...increment, ...getTarget);
+    increment_DB.push(...increment);
 
-    //-----------------
+    const tgt = getTarget.map((item) => item.name).toString();
+    const incr = increment.map((item) => item.name);
 
-    const tranformingToJson = increment_DB.map((item) => {
-      return JSON.stringify(item);
-    });
+    if (incr.includes(tgt)) {
+      const newArray = increment_DB.filter((item) => {
+        return item.name !== tgt;
+      });
 
-    const removingDuplicates = new Set(tranformingToJson);
-    const tranformingToObject = Array.from(removingDuplicates).map(JSON.parse);
+      setIncrement(newArray);
 
-    setIncrement(tranformingToObject);
+      const nameList = newArray.map((item) => item.name);
 
-    const nameList = tranformingToObject.map((item) => item.name);
-    setTarget(nameList);
+      setTarget(nameList);
 
-    //---------
+      const incrementTotal = newArray.map((item) => {
+        return item.price;
+      });
 
-    const IncrementTotal = tranformingToObject.map((item) => {
-      return item.price;
-    });
+      let finalValue;
 
-    const finalValue = IncrementTotal.reduce((acc, value) => {
-      return acc + value;
-    });
+      if (incrementTotal.length === 0) {
+        finalValue = 0;
+      } else {
+        finalValue = incrementTotal.reduce((acc, value) => {
+          return acc + value;
+        });
+      }
 
-    setTotalIncrement(finalValue);
-    setTotal(finalValue + totalSize);
+      setTotalIncrement(finalValue);
+      setTotal(finalValue + totalSize);
+    } else {
+      increment_DB.push(...getTarget);
+
+      setIncrement(increment_DB);
+
+      const nameList = increment_DB.map((item) => item.name);
+
+      setTarget(nameList);
+
+      const incrementTotal = increment_DB.map((item) => {
+        return item.price;
+      });
+
+      const finalValue = incrementTotal.reduce((acc, value) => {
+        return acc + value;
+      });
+
+      setTotalIncrement(finalValue);
+      setTotal(finalValue + totalSize);
+    }
   };
 
-  // --------------------------------------------------------------------------------------
+  // ----------------------------------------------------------------------------------
 
   const handleSizeListClick = (e) => {
     showSize(e, sizeList_DB);
@@ -83,7 +107,7 @@ const Home = () => {
     showIncrement(e, IncrementList_DB);
   };
 
-  // --------------------------------------------------------------------------------------
+  // ----------------------------------------------------------------------------------
 
   return (
     <main className={`${styles.home} container`}>
