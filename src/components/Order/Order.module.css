@@ -1,0 +1,13 @@
+.content {
+  min-height: 80vh;
+  border: 1px solid black;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.block {
+  width: 200px;
+  min-height: 300px;
+  border: 1px solid black;
+}
