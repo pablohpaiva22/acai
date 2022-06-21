@@ -18,19 +18,22 @@ const Home = () => {
   const [increment, setIncrement] = React.useState([]);
   const [totalIncrement, setTotalIncrement] = React.useState(0);
 
-  const [target, setTarget] = React.useState("");
+  const [nameList, setNameList] = React.useState("");
+  const [sizeNameList, setSizeNameList] = React.useState("");
 
   // ----------------------------------------------------------------------------------
 
   const showSize = (e, data) => {
-    const getTarget = data.filter((item) => {
+    const TargetObject = data.filter((item) => {
       return item.name === e.target.innerText;
     });
 
-    size_DB.push(...getTarget);
+    size_DB.push(...TargetObject);
     setSize(size_DB);
 
-    totalSize_DB.push(getTarget[0].price);
+    setSizeNameList(size_DB[0].name);
+
+    totalSize_DB.push(TargetObject[0].price);
 
     setTotalSize(totalSize_DB[0]);
     setTotal(totalSize_DB[0] + totalIncrement);
@@ -39,27 +42,29 @@ const Home = () => {
   // ----------------------------------------------------------------------------------
 
   const showIncrement = (e, data) => {
-    const getTarget = data.filter((item) => {
+    const TargetObject = data.filter((item) => {
       return item.name === e.target.innerText;
     });
 
     increment_DB.push(...increment);
 
-    const tgt = getTarget.map((item) => item.name).toString();
-    const incr = increment.map((item) => item.name);
+    const targetName = TargetObject.map((item) => item.name).toString();
+    const incrementNameList = increment.map((item) => item.name);
 
-    if (incr.includes(tgt)) {
-      const newArray = increment_DB.filter((item) => {
-        return item.name !== tgt;
+    if (incrementNameList.includes(targetName)) {
+      const removeExistentItem = increment_DB.filter((item) => {
+        return item.name !== targetName;
       });
 
-      setIncrement(newArray);
+      setIncrement(removeExistentItem);
 
-      const nameList = newArray.map((item) => item.name);
+      const FinalNameList = removeExistentItem.map((item) => item.name);
 
-      setTarget(nameList);
+      setNameList(FinalNameList);
 
-      const incrementTotal = newArray.map((item) => {
+      console.log(FinalNameList);
+
+      const incrementTotal = removeExistentItem.map((item) => {
         return item.price;
       });
 
@@ -76,13 +81,13 @@ const Home = () => {
       setTotalIncrement(finalValue);
       setTotal(finalValue + totalSize);
     } else {
-      increment_DB.push(...getTarget);
+      increment_DB.push(...TargetObject);
 
       setIncrement(increment_DB);
 
-      const nameList = increment_DB.map((item) => item.name);
+      const FinalNameList = increment_DB.map((item) => item.name);
 
-      setTarget(nameList);
+      setNameList(FinalNameList);
 
       const incrementTotal = increment_DB.map((item) => {
         return item.price;
@@ -114,12 +119,16 @@ const Home = () => {
       <div className={styles.firstBox}>
         <h2 className={styles.firstBoxTitle}>ESCOLHA O TAMANHO</h2>
 
-        <SizeList sizeList_DB={sizeList_DB} onClick={handleSizeListClick} />
+        <SizeList
+          sizeNameList={sizeNameList}
+          sizeList_DB={sizeList_DB}
+          onClick={handleSizeListClick}
+        />
 
         <h3 className={styles.firstBoxTitle}>ADICIONAIS</h3>
 
         <IncrementList
-          target={target}
+          nameList={nameList}
           Increment_DB={IncrementList_DB}
           onClick={handleIncrementListClick}
         />
