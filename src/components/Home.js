@@ -132,7 +132,7 @@ const Home = () => {
           onClick={handleSizeListClick}
         />
 
-        <h3 className={styles.firstBoxTitle}>ADICIONAIS</h3>
+        <h2 className={styles.firstBoxTitle}>ADICIONAIS</h2>
 
         <IncrementList
           nameList={nameList}
@@ -142,15 +142,15 @@ const Home = () => {
       </div>
 
       <div className={styles.secondBox}>
-        <h2 className={styles.secondBoxTitle}>Descrição do Pedido</h2>
+        <h2 className={styles.secondBoxTitle}>DESCRIÇÃO</h2>
 
         <SizeDescription size={size} />
 
         <IncrementDescription increment={increment} />
 
-        <h3 className={styles.secondBoxSubtitle}>TOTAL</h3>
+        <span className={styles.secondBoxSubtitle}>TOTAL</span>
 
-        <p className={styles.secondBoxTotal}>{`R$ ${total}`}</p>
+        <span className={styles.secondBoxTotal}>{`R$ ${total}`}</span>
 
         <button onClick={handleOrderClick} className={styles.secondBoxBtn}>
           Finalizar Pedido
