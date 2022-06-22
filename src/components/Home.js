@@ -20,7 +20,7 @@ const Home = () => {
   const [increment, setIncrement] = React.useState([]);
   const [totalIncrement, setTotalIncrement] = React.useState(0);
 
-  const [nameList, setNameList] = React.useState("");
+  const [incrementNameList, setIncrementNameList] = React.useState("");
   const [sizeNameList, setSizeNameList] = React.useState("");
 
   // ----------------------------------------------------------------------------------
@@ -60,7 +60,7 @@ const Home = () => {
 
       const FinalNameList = removeExistentItem.map((item) => item.name);
 
-      setNameList(FinalNameList);
+      setIncrementNameList(FinalNameList);
 
       console.log(FinalNameList);
 
@@ -87,7 +87,7 @@ const Home = () => {
 
       const FinalNameList = increment_DB.map((item) => item.name);
 
-      setNameList(FinalNameList);
+      setIncrementNameList(FinalNameList);
 
       const incrementTotal = increment_DB.map((item) => {
         return item.price;
@@ -132,7 +132,7 @@ const Home = () => {
         <h2 className={styles.firstBoxTitle}>ADICIONAIS</h2>
 
         <IncrementList
-          nameList={nameList}
+          incrementNameList={incrementNameList}
           Increment_DB={IncrementList_DB}
           onClick={handleIncrementListClick}
         />

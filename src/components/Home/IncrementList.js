@@ -1,13 +1,15 @@
 import React from "react";
 import styles from "./IncrementList.module.css";
 
-const IncrementList = ({ onClick, Increment_DB, nameList }) => {
+const IncrementList = ({ onClick, Increment_DB, incrementNameList }) => {
   return (
     <ul className={styles.container}>
       {Increment_DB.map((item) => {
         return (
           <li
-            className={nameList.includes(item.name) ? styles.active : ""}
+            className={
+              incrementNameList.includes(item.name) ? styles.active : ""
+            }
             onClick={onClick}
             key={item.name}
           >
