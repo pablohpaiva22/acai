@@ -4,7 +4,7 @@ import IncrementList from "./Home/IncrementList";
 import IncrementDescription from "./Home/IncrementDescription";
 import SizeList from "./Home/SizeList";
 import { sizeList_DB, IncrementList_DB } from "./Home/databaseHome";
-import OrderSize from "./Home/OrderSize";
+import SizeDescription from "./Home/SizeDescription";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -144,7 +144,7 @@ const Home = () => {
       <div className={styles.secondBox}>
         <h2 className={styles.secondBoxTitle}>Descrição do Pedido</h2>
 
-        <OrderSize size={size} />
+        <SizeDescription size={size} />
 
         <IncrementDescription increment={increment} />
 

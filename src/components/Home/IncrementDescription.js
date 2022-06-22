@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./IncrementDescription.module.css";
 
-const Order = ({ increment }) => {
+const IncrementDescription = ({ increment }) => {
   return (
     <>
       <h3 className={styles.title}>Adicionais</h3>
@@ -19,4 +19,4 @@ const Order = ({ increment }) => {
   );
 };
 
-export default Order;
+export default IncrementDescription;

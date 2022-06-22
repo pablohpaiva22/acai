@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./OrderSize.module.css";
+import styles from "./SizeDescription.module.css";
 
-const OrderSize = ({ size }) => {
+const SizeDescription = ({ size }) => {
   return (
     <div className={styles.sizeContainer}>
       <h3 className={styles.title}>Tamanho</h3>
@@ -16,4 +16,4 @@ const OrderSize = ({ size }) => {
   );
 };
 
-export default OrderSize;
+export default SizeDescription;
