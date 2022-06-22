@@ -3,7 +3,7 @@ import styles from "./Home.module.css";
 import IncrementList from "./Home/IncrementList";
 import IncrementDescription from "./Home/IncrementDescription";
 import SizeList from "./Home/SizeList";
-import { sizeList_DB, IncrementList_DB } from "./Home/databaseHome";
+import { sizeList_DB, IncrementList_DB } from "./Home/homeDatabase";
 import SizeDescription from "./Home/SizeDescription";
 import { useNavigate } from "react-router-dom";
 
