@@ -148,9 +148,9 @@ const Home = () => {
 
         <IncrementDescription increment={increment} />
 
-        <span className={styles.secondBoxSubtitle}>TOTAL</span>
+        <span className={styles.totalTitle}>TOTAL</span>
 
-        <span className={styles.secondBoxTotal}>{`R$ ${total}`}</span>
+        <span className={styles.totalValue}>{`R$ ${total}`}</span>
 
         <button onClick={handleOrderClick} className={styles.secondBoxBtn}>
           Finalizar Pedido
