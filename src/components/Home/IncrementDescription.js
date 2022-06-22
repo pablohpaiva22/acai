@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./OrderIncrement.module.css";
+import styles from "./IncrementDescription.module.css";
 
 const Order = ({ increment }) => {
   return (

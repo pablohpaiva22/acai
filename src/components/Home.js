@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Home.module.css";
 import IncrementList from "./Home/IncrementList";
-import OrderIncrement from "./Home/OrderIncrement";
+import IncrementDescription from "./Home/IncrementDescription";
 import SizeList from "./Home/SizeList";
 import { sizeList_DB, IncrementList_DB } from "./Home/databaseHome";
 import OrderSize from "./Home/OrderSize";
@@ -146,7 +146,7 @@ const Home = () => {
 
         <OrderSize size={size} />
 
-        <OrderIncrement increment={increment} />
+        <IncrementDescription increment={increment} />
 
         <h3 className={styles.secondBoxSubtitle}>TOTAL</h3>
 
