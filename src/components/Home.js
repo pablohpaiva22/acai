@@ -5,8 +5,11 @@ import OrderIncrement from "./Home/OrderIncrement";
 import SizeList from "./Home/SizeList";
 import { sizeList_DB, IncrementList_DB } from "./Home/databaseHome";
 import OrderSize from "./Home/OrderSize";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   const [total, setTotal] = React.useState(0);
 
   const size_DB = [];
@@ -112,6 +115,10 @@ const Home = () => {
     showIncrement(e, IncrementList_DB);
   };
 
+  const handleOrderClick = (e) => {
+    navigate("/pedido");
+  };
+
   // ----------------------------------------------------------------------------------
 
   return (
@@ -145,7 +152,9 @@ const Home = () => {
 
         <p className={styles.secondBoxTotal}>{`R$ ${total}`}</p>
 
-        <button className={styles.secondBoxBtn}>Finalizar Pedido</button>
+        <button onClick={handleOrderClick} className={styles.secondBoxBtn}>
+          Finalizar Pedido
+        </button>
       </div>
     </main>
   );
