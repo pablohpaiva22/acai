@@ -13,7 +13,6 @@ const Home = () => {
   const [total, setTotal] = React.useState(0);
 
   const size_DB = [];
-  const totalSize_DB = [];
   const [size, setSize] = React.useState([]);
   const [totalSize, setTotalSize] = React.useState(0);
 
@@ -36,10 +35,8 @@ const Home = () => {
 
     setSizeNameList(size_DB[0].name);
 
-    totalSize_DB.push(TargetObject[0].price);
-
-    setTotalSize(totalSize_DB[0]);
-    setTotal(totalSize_DB[0] + totalIncrement);
+    setTotalSize(size_DB[0].price);
+    setTotal(size_DB[0].price + totalIncrement);
   };
 
   // ----------------------------------------------------------------------------------
