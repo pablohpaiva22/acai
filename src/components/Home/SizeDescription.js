@@ -1,7 +1,10 @@
 import React from "react";
+import { GlobalContext } from "../../GlobalContext";
 import styles from "./SizeDescription.module.css";
 
-const SizeDescription = ({ size }) => {
+const SizeDescription = () => {
+  const { size } = React.useContext(GlobalContext);
+
   return (
     <div className={styles.sizeContainer}>
       <h3 className={styles.title}>Tamanho</h3>

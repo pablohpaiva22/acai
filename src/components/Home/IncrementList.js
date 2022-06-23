@@ -1,10 +1,13 @@
 import React from "react";
+import { GlobalContext } from "../../GlobalContext";
 import styles from "./IncrementList.module.css";
+import { IncrementList_DB } from "./homeDatabase";
 
-const IncrementList = ({ onClick, Increment_DB, incrementNameList }) => {
+const IncrementList = ({ onClick }) => {
+  const { incrementNameList } = React.useContext(GlobalContext);
   return (
     <ul className={styles.container}>
-      {Increment_DB.map((item) => {
+      {IncrementList_DB.map((item) => {
         return (
           <li
             className={
