@@ -11,3 +11,7 @@
   display: flex;
   gap: 1rem;
 }
+
+.header h1 {
+  cursor: pointer;
+}

@@ -3,28 +3,25 @@ import React from "react";
 export const GlobalContext = React.createContext();
 
 export const GlobalStorage = ({ children }) => {
-  const size_DB = [];
   const [size, setSize] = React.useState([]);
   const [totalSize, setTotalSize] = React.useState(0);
-
-  const increment_DB = [];
   const [increment, setIncrement] = React.useState([]);
   const [totalIncrement, setTotalIncrement] = React.useState(0);
-
   const [incrementNameList, setIncrementNameList] = React.useState("");
   const [sizeNameList, setSizeNameList] = React.useState("");
-
   const [total, setTotal] = React.useState(0);
+  const [globs, setGlobs] = React.useState([]);
 
   const showSize = (e, data) => {
     const TargetObject = data.filter((item) => {
-      return item.name === e.target.innerText;
+      return item.size === e.target.innerText;
     });
 
+    const size_DB = [];
     size_DB.push(...TargetObject);
     setSize(size_DB);
 
-    setSizeNameList(size_DB[0].name);
+    setSizeNameList(size_DB[0].size);
 
     setTotalSize(size_DB[0].price);
     setTotal(size_DB[0].price + totalIncrement);
@@ -34,6 +31,7 @@ export const GlobalStorage = ({ children }) => {
     const TargetObject = data.filter((item) => {
       return item.name === e.target.innerText;
     });
+    const increment_DB = [];
 
     increment_DB.push(...increment);
 
@@ -89,20 +87,33 @@ export const GlobalStorage = ({ children }) => {
     }
   };
 
+  const createNewItem = (id) => {
+    const newItem_DB = [];
+    newItem_DB.push([+id, ...size, increment, total]);
+    const global_DB = [];
+    global_DB.push(...globs, ...newItem_DB);
+    setGlobs(global_DB);
+  };
+
   return (
     <GlobalContext.Provider
       value={{
         size,
-        size_DB,
         increment,
-        increment_DB,
         totalIncrement,
-        totalSize,
         sizeNameList,
+        setIncrementNameList,
+        setSizeNameList,
         incrementNameList,
         total,
+        setTotal,
         showIncrement,
         showSize,
+        createNewItem,
+        setSize,
+        setIncrement,
+        globs,
+        setGlobs,
       }}
     >
       {children}

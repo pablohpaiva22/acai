@@ -11,7 +11,7 @@ const SizeDescription = () => {
       {size.map((item, index) => {
         return (
           <p className={styles.size} key={index}>
-            {item.name}
+            {item.size}
           </p>
         );
       })}

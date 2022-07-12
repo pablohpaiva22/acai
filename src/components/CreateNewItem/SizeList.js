@@ -11,11 +11,11 @@ const SizeList = ({ onClick }) => {
       {sizeList_DB.map((item, index) => {
         return (
           <li
-            className={sizeNameList.includes(item.name) ? styles.active : ""}
+            className={sizeNameList.includes(item.size) ? styles.active : ""}
             onClick={onClick}
             key={index}
           >
-            {item.name}
+            {item.size}
           </li>
         );
       })}

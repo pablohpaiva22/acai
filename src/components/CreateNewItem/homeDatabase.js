@@ -1,9 +1,9 @@
 export const sizeList_DB = [
-  { name: "300 ml", price: 6 },
-  { name: "400 ml", price: 7 },
-  { name: "500 ml", price: 8 },
-  { name: "750 ml", price: 9 },
-  { name: "1 litro", price: 10 },
+  { size: "300 ml", price: 6 },
+  { size: "400 ml", price: 7 },
+  { size: "500 ml", price: 8 },
+  { size: "750 ml", price: 9 },
+  { size: "1 litro", price: 10 },
 ];
 
 export const IncrementList_DB = [

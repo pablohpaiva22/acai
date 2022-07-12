@@ -1,0 +1,68 @@
+.container {
+  min-height: 80vh;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.itensList {
+  display: flex;
+  gap: 1rem;
+}
+
+.size {
+  margin-bottom: 1rem;
+}
+
+.increment {
+  margin-bottom: 1rem;
+}
+
+.descriptionList,
+.newOrder {
+  width: 200px;
+  min-height: 300px;
+  border: 1px solid black;
+  padding: 0.5rem;
+}
+
+.descriptionList h3 {
+  margin-bottom: 0.5rem;
+}
+
+.descriptionList h4 {
+  margin-bottom: 0.25rem;
+}
+
+.descriptionList ul {
+  margin-bottom: 0.125rem;
+}
+
+.descriptionList ul li {
+  line-height: 1.125;
+}
+
+.totalText {
+  display: block;
+  font-weight: bold;
+}
+
+.totalPedido {
+  display: block;
+  margin: 0 auto;
+  font-size: 2rem;
+}
+
+.EndOrder {
+  display: block;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
