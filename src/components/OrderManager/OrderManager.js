@@ -12,6 +12,7 @@ const OrderManager = () => {
     setSizeNameList,
     setTotal,
     setGlobs,
+    setTotalSize,
   } = React.useContext(GlobalContext);
   const navigate = useNavigate();
   const [totalPedido, setTotalPedido] = React.useState(0);
@@ -47,6 +48,7 @@ const OrderManager = () => {
 
     if (globs.length === 0) {
       setSize([]);
+      setTotalSize(0);
       setIncrement([]);
       setIncrementNameList("");
       setSizeNameList("");
@@ -64,6 +66,7 @@ const OrderManager = () => {
     id += new_id;
 
     setSize([]);
+    setTotalSize(0);
     setIncrement([]);
     setIncrementNameList("");
     setSizeNameList("");

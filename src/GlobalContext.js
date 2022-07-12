@@ -114,6 +114,7 @@ export const GlobalStorage = ({ children }) => {
         setIncrement,
         globs,
         setGlobs,
+        setTotalSize,
       }}
     >
       {children}
