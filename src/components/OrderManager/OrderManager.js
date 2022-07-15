@@ -1,14 +1,14 @@
 import React from "react";
+import styles from "./OrderManager.module.css";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../GlobalContext";
 import Button from "../General/Button";
 import Card from "./Card/Card";
-import styles from "./OrderManager.module.css";
 
 const OrderManager = () => {
   const { globs, reset, totalPedido } = React.useContext(GlobalContext);
-  const navigate = useNavigate();
   const [error, setError] = React.useState(false);
+  const navigate = useNavigate();
 
   const handleClick = () => {
     let id = 1;
@@ -38,8 +38,8 @@ const OrderManager = () => {
       return true;
     }
 
-    navigate("/pedido/imprimir");
     setError(true);
+    navigate("/pedido/imprimir");
   };
 
   return (

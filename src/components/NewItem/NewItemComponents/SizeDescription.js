@@ -1,17 +1,17 @@
 import React from "react";
-import { GlobalContext } from "../../../GlobalContext";
 import styles from "./SizeDescription.module.css";
+import { GlobalContext } from "../../../GlobalContext";
 
 const SizeDescription = () => {
   const { size } = React.useContext(GlobalContext);
 
   return (
-    <div className={styles.sizeContainer}>
+    <div className={styles.container}>
       <h3 className={styles.title}>Tamanho</h3>
-      {size.map((item, index) => {
+      {size.map(({ size }, index) => {
         return (
           <p className={styles.size} key={index}>
-            {item.size}
+            {size}
           </p>
         );
       })}

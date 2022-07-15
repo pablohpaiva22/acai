@@ -1,6 +1,6 @@
 import React from "react";
-import { GlobalContext } from "../../../GlobalContext";
 import styles from "./IncrementList.module.css";
+import { GlobalContext } from "../../../GlobalContext";
 import { IncrementList_DB } from "../database";
 
 const IncrementList = ({ onClick }) => {
@@ -8,19 +8,21 @@ const IncrementList = ({ onClick }) => {
 
   return (
     <ul className={styles.container}>
-      {IncrementList_DB.map((item) => {
+      {IncrementList_DB.map((increment) => {
         return (
           <li
             className={
-              incrementNameList.includes(item.name) ? styles.active : ""
+              incrementNameList.includes(increment.name)
+                ? styles.active
+                : undefined
             }
-            key={item.name}
+            key={increment.name}
           >
             <span className={styles.name} onClick={onClick}>
-              {item.name}
+              {increment.name}
             </span>
 
-            <span className={styles.price}>{`R$ ${item.price},00`}</span>
+            <span className={styles.price}>{`R$ ${increment.price},00`}</span>
           </li>
         );
       })}

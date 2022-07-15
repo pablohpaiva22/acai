@@ -40,10 +40,10 @@ const Card = () => {
             <div className={styles.increment}>
               <h4>Adicionais</h4>
 
-              {item[2].map((ops, index) => {
+              {item[2].map(({ name }, index) => {
                 return (
                   <ul key={index}>
-                    <li>{ops.name}</li>
+                    <li>{name}</li>
                   </ul>
                 );
               })}

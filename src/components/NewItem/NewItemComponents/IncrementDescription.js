@@ -9,10 +9,10 @@ const IncrementDescription = () => {
     <>
       <h3 className={styles.title}>Adicionais</h3>
       <ul className={styles.itensList}>
-        {increment.map((item, index) => {
+        {increment.map(({ name }, index) => {
           return (
             <li key={index}>
-              <p>{item.name}</p>
+              <p>{name}</p>
             </li>
           );
         })}

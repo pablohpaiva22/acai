@@ -44,3 +44,18 @@
   font-weight: bold;
   text-align: center;
 }
+
+@media (max-width: 740px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 170px;
+    min-height: 300px;
+    box-shadow: 2px 2px 4px 0 #d7acff;
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    background: #eee;
+    border-radius: 8px;
+  }
+}

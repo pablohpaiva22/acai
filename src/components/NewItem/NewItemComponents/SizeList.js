@@ -1,6 +1,6 @@
 import React from "react";
-import { GlobalContext } from "../../../GlobalContext";
 import styles from "./SizeList.module.css";
+import { GlobalContext } from "../../../GlobalContext";
 import { sizeList_DB } from "../database";
 
 const SizeList = ({ onClick }) => {
@@ -8,17 +8,17 @@ const SizeList = ({ onClick }) => {
 
   return (
     <ul className={styles.container}>
-      {sizeList_DB.map((item, index) => {
+      {sizeList_DB.map(({ size, price }, index) => {
         return (
           <li
-            className={sizeNameList.includes(item.size) ? styles.active : ""}
+            className={sizeNameList.includes(size) ? styles.active : undefined}
             key={index}
           >
             <span className={styles.size} onClick={onClick}>
-              {item.size}
+              {size}
             </span>
 
-            <span className={styles.price}>{`R$ ${item.price},00`}</span>
+            <span className={styles.price}>{`R$ ${price},00`}</span>
           </li>
         );
       })}
