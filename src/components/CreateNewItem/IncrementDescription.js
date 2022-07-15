@@ -13,7 +13,6 @@ const IncrementDescription = () => {
           return (
             <li key={index}>
               <p>{item.name}</p>
-              <p>{item.price}</p>
             </li>
           );
         })}

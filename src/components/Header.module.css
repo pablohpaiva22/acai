@@ -1,10 +1,18 @@
+.headerBG {
+  background: var(--primary-color);
+}
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #662d91;
+  background: var(--primary-color);
   color: #fff;
   height: 10vh;
+}
+
+.header h1 {
+  cursor: pointer;
 }
 
 .nav {
@@ -12,6 +20,15 @@
   gap: 1rem;
 }
 
-.header h1 {
-  cursor: pointer;
+.nav li {
+  font-weight: bold;
+}
+
+.nav a {
+  font-weight: bold;
+  color: #fff;
+}
+
+.nav a.active {
+  color: red;
 }

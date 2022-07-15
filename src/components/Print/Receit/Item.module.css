@@ -1,0 +1,35 @@
+.item {
+  padding: 0.25rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-bottom: 1px dashed black;
+}
+
+.size h4,
+.increment h4,
+.total h4 {
+  font-size: 0.9rem;
+}
+
+.size span {
+  font-size: 0.9rem;
+}
+
+.increment ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.5rem;
+}
+
+.increment li {
+  white-space: nowrap;
+  border: 1px solid black;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.total span {
+  font-size: 0.9rem;
+}

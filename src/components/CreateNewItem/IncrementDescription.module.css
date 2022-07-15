@@ -15,7 +15,12 @@
 
 .itensList li p {
   font-size: 1rem;
-  border: 1px solid #000;
   margin-bottom: 0.25rem;
   padding-left: 0.25rem;
+}
+
+@media (max-width: 804px) {
+  .itensList {
+    min-height: 165px;
+  }
 }

@@ -1,6 +1,10 @@
+.footerBG {
+  background: var(--primary-color);
+}
+
 .footer {
   height: 10vh;
-  background-color: #662d91;
+  background-color: var(--primary-color);
   color: #fff;
   text-align: center;
   display: flex;

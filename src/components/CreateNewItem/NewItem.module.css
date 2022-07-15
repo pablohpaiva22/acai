@@ -3,21 +3,22 @@
   display: grid;
   grid-template-columns: 2.2fr 0.8fr;
   gap: 0.5rem;
-  padding: 0.5rem 0;
+  padding: 0;
+  background: #fff;
 }
 
 .firstBox {
-  border: 1px solid #662d91;
+  box-shadow: 2px 2px 4px 0 var(--primary-color);
 }
 
 .firstBoxTitle {
   color: #000;
   text-align: center;
-  margin: 1rem;
+  margin: 1.5rem;
 }
 
 .secondBox {
-  border: 1px solid #662d91;
+  box-shadow: 2px 2px 4px 0 var(--primary-color);
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -41,10 +42,36 @@
 
 .secondBoxBtn {
   display: block;
+  margin: 0 auto;
+  padding: 1rem 2rem;
   font-size: 1.5rem;
-  margin: 0 auto 0;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  background: #662d91;
-  color: #fff;
+  border-radius: 8px;
+  background: var(--secondary-color);
+  color: white;
+  border: none;
+  border: 1px solid #555;
+  box-shadow: 2px 2px 0 2px #bbb;
+  cursor: pointer;
+}
+
+.error {
+  display: block;
+  text-align: center;
+  margin: 0.5rem;
+  color: var(--color-error);
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+@media (max-width: 804px) {
+  .home {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+  }
+  .firstBoxTitle {
+    margin: 1rem;
+  }
 }

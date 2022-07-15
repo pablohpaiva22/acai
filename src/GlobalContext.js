@@ -1,4 +1,8 @@
 import React from "react";
+import {
+  sizeList_DB,
+  IncrementList_DB,
+} from "./components/CreateNewItem/database";
 
 export const GlobalContext = React.createContext();
 
@@ -11,9 +15,26 @@ export const GlobalStorage = ({ children }) => {
   const [sizeNameList, setSizeNameList] = React.useState("");
   const [total, setTotal] = React.useState(0);
   const [globs, setGlobs] = React.useState([]);
+  const [totalPedido, setTotalPedido] = React.useState(0);
 
-  const showSize = (e, data) => {
-    const TargetObject = data.filter((item) => {
+  React.useEffect(() => {
+    if (globs.length !== 0) {
+      const getTotal = globs
+        .map((item) => {
+          return item[3];
+        })
+        .reduce((acc, item) => {
+          return acc + item;
+        });
+
+      setTotalPedido(getTotal);
+    } else {
+      setTotalPedido(0);
+    }
+  }, [globs]);
+
+  const showSize = (e) => {
+    const TargetObject = sizeList_DB.filter((item) => {
       return item.size === e.target.innerText;
     });
 
@@ -27,8 +48,8 @@ export const GlobalStorage = ({ children }) => {
     setTotal(size_DB[0].price + totalIncrement);
   };
 
-  const showIncrement = (e, data) => {
-    const TargetObject = data.filter((item) => {
+  const showIncrement = (e) => {
+    const TargetObject = IncrementList_DB.filter((item) => {
       return item.name === e.target.innerText;
     });
     const increment_DB = [];
@@ -95,6 +116,16 @@ export const GlobalStorage = ({ children }) => {
     setGlobs(global_DB);
   };
 
+  const reset = () => {
+    setSize([]);
+    setIncrement([]);
+    setIncrementNameList("");
+    setSizeNameList("");
+    setTotal(0);
+    setTotalSize(0);
+    setTotalIncrement(0);
+  };
+
   return (
     <GlobalContext.Provider
       value={{
@@ -115,6 +146,8 @@ export const GlobalStorage = ({ children }) => {
         globs,
         setGlobs,
         setTotalSize,
+        reset,
+        totalPedido,
       }}
     >
       {children}

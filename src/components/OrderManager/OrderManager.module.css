@@ -1,68 +1,98 @@
 .container {
   min-height: 80vh;
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   align-items: flex-start;
   justify-content: space-between;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
+  background: #fff;
 }
 
 .itensList {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
-.size {
-  margin-bottom: 1rem;
-}
-
-.increment {
-  margin-bottom: 1rem;
-}
-
-.descriptionList,
-.newOrder {
-  width: 200px;
+.card {
+  width: 220px;
   min-height: 300px;
-  border: 1px solid black;
+  box-shadow: 2px 2px 4px 0 #d7acff;
+  border: 1px solid #ddd;
   padding: 0.5rem;
+  background: #eee;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.descriptionList h3 {
-  margin-bottom: 0.5rem;
-}
-
-.descriptionList h4 {
-  margin-bottom: 0.25rem;
-}
-
-.descriptionList ul {
-  margin-bottom: 0.125rem;
-}
-
-.descriptionList ul li {
-  line-height: 1.125;
-}
-
-.totalText {
+.card button {
   display: block;
-  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: var(--secondary-color);
+  border-radius: 50%;
+  background-size: 48px 48px;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  position: relative;
 }
 
-.totalPedido {
+.card button:hover {
+  background: var(--secondary-color-hover);
+}
+
+.card button::after {
+  content: "";
+  width: 24px;
+  height: 4px;
+  background: #fff;
+  position: absolute;
+  top: 22px;
+  left: 12px;
+  border-radius: 4px;
+}
+
+.card button::before {
+  content: "";
+  width: 4px;
+  height: 24px;
+  background: #fff;
+  position: absolute;
+  left: 22px;
+  top: 12px;
+  border-radius: 4px;
+}
+
+.total {
   display: block;
   margin: 0 auto;
   font-size: 2rem;
+  text-align: center;
+  color: var(--primary-color);
+  font-weight: bold;
 }
 
-.EndOrder {
+.end {
   display: block;
   margin: 0 auto;
   padding: 1rem 2rem;
+  font-size: 1.5rem;
+  border-radius: 8px;
+  background: #fff;
+  border: none;
+  border: 1px solid #555;
+  box-shadow: 2px 2px 0 2px #bbb;
+  cursor: pointer;
+}
+
+.error {
+  color: var(--color-error);
+  font-weight: bold;
+  margin: 0 auto;
+  font-size: 1rem;
+  margin-top: 1rem;
 }

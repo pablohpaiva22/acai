@@ -1,3 +1,32 @@
 .container {
   height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  background: #fff;
+}
+
+.container p {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.play {
+  display: block;
+  width: 74px;
+  height: 74px;
+  border-style: solid;
+  border-width: 37px 0 37px 74px;
+  border-color: #fff var(--secondary-color) #fff var(--secondary-color);
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.play:hover {
+  border-color: #fff var(--secondary-color-hover) #fff
+    var(--secondary-color-hover);
 }

@@ -3,9 +3,11 @@ import styles from "./Footer.module.css";
 
 const Footer = () => {
   return (
-    <footer className={`${styles.footer} container`}>
-      Todos os direitos reservados
-    </footer>
+    <div className={styles.footerBG}>
+      <footer className={`${styles.footer} container`}>
+        Todos os direitos reservados.
+      </footer>
+    </div>
   );
 };
 

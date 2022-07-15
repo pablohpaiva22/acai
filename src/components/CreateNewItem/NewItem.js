@@ -3,10 +3,10 @@ import styles from "./NewItem.module.css";
 import IncrementList from "./IncrementList";
 import IncrementDescription from "./IncrementDescription";
 import SizeList from "./SizeList";
-import { sizeList_DB, IncrementList_DB } from "./homeDatabase";
 import SizeDescription from "./SizeDescription";
 import { GlobalContext } from "../../GlobalContext";
 import { useNavigate, useParams } from "react-router-dom";
+import Button from "../Geral/Button";
 
 const NewItem = () => {
   const { showSize, showIncrement, total, createNewItem, size } =
@@ -16,11 +16,11 @@ const NewItem = () => {
   const [error, setError] = React.useState(false);
 
   const handleSizeListClick = (e) => {
-    showSize(e, sizeList_DB);
+    showSize(e);
   };
 
   const handleIncrementListClick = (e) => {
-    showIncrement(e, IncrementList_DB);
+    showIncrement(e);
   };
 
   const handleOrderClick = async (e) => {
@@ -32,12 +32,11 @@ const NewItem = () => {
     }
 
     createNewItem(id);
-
     navigate("/pedido");
   };
 
   return (
-    <main className={`${styles.home} container`}>
+    <section className={`${styles.home} container`}>
       <div className={styles.firstBox}>
         <h2 className={styles.firstBoxTitle}>ESCOLHA O TAMANHO</h2>
 
@@ -56,15 +55,13 @@ const NewItem = () => {
         <IncrementDescription />
 
         <span className={styles.totalTitle}>TOTAL</span>
+        <span className={styles.totalValue}>{`R$ ${total},00`}</span>
 
-        <span className={styles.totalValue}>{`R$ ${total}`}</span>
+        <Button onClick={handleOrderClick} />
 
-        <button onClick={handleOrderClick} className={styles.secondBoxBtn}>
-          Finalizar Pedido
-        </button>
-        {error && <p>Escolha um tamanho</p>}
+        {error && <p className={styles.error}>Escolha um tamanho</p>}
       </div>
-    </main>
+    </section>
   );
 };
 
