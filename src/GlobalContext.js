@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  sizeList_DB,
-  IncrementList_DB,
-} from "./components/CreateNewItem/database";
+import { sizeList_DB, IncrementList_DB } from "./components/NewItem/database";
 
 export const GlobalContext = React.createContext();
 

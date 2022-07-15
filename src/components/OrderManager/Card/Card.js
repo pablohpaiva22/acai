@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Card.module.css";
-import { GlobalContext } from "../../GlobalContext";
+import { GlobalContext } from "../../../GlobalContext";
 
 const Card = () => {
   const { globs, setGlobs } = React.useContext(GlobalContext);

@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../GlobalContext";
 import Button from "../Geral/Button";
-import Card from "./Card";
+import Card from "./Card/Card";
 import styles from "./OrderManager.module.css";
 
 const OrderManager = () => {

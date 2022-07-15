@@ -1,7 +1,7 @@
 import React from "react";
-import { GlobalContext } from "../../GlobalContext";
+import { GlobalContext } from "../../../GlobalContext";
 import styles from "./SizeList.module.css";
-import { sizeList_DB } from "./database";
+import { sizeList_DB } from "../database";
 
 const SizeList = ({ onClick }) => {
   const { sizeNameList } = React.useContext(GlobalContext);

@@ -6,7 +6,7 @@ import Home from "./components/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import OrderManager from "./components/OrderManager/OrderManager";
 import { GlobalStorage } from "./GlobalContext";
-import NewItem from "./components/CreateNewItem/NewItem";
+import NewItem from "./components/NewItem/NewItem";
 import Print from "./components/Print/Print";
 import About from "./components/About/About";
 

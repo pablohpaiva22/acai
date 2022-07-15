@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./NewItem.module.css";
-import IncrementList from "./IncrementList";
-import IncrementDescription from "./IncrementDescription";
-import SizeList from "./SizeList";
-import SizeDescription from "./SizeDescription";
+import IncrementList from "./NewItemComponents/IncrementList";
+import IncrementDescription from "./NewItemComponents/IncrementDescription";
+import SizeList from "./NewItemComponents/SizeList";
+import SizeDescription from "./NewItemComponents/SizeDescription";
 import { GlobalContext } from "../../GlobalContext";
 import { useNavigate, useParams } from "react-router-dom";
-import Button from "../Geral/Button";
+import Button from "../General/Button";
 
 const NewItem = () => {
   const { showSize, showIncrement, total, createNewItem, size } =

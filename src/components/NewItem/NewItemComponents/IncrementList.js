@@ -1,7 +1,7 @@
 import React from "react";
-import { GlobalContext } from "../../GlobalContext";
+import { GlobalContext } from "../../../GlobalContext";
 import styles from "./IncrementList.module.css";
-import { IncrementList_DB } from "./database";
+import { IncrementList_DB } from "../database";
 
 const IncrementList = ({ onClick }) => {
   const { incrementNameList } = React.useContext(GlobalContext);

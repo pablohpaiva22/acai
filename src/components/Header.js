@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./Header.module.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import { GlobalContext } from "../GlobalContext";
-import About from "./About/About";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -21,7 +20,12 @@ const Header = () => {
         <nav>
           <ul className={styles.nav}>
             <li>
-              <NavLink to="/sobre" path={<About />}>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? styles.active : undefined
+                }
+                to="/sobre"
+              >
                 SOBRE
               </NavLink>
             </li>
