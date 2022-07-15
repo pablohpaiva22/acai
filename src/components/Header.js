@@ -14,8 +14,8 @@ const Header = () => {
   };
 
   return (
-    <div className={styles.headerBG}>
-      <header className={`${styles.header} container`}>
+    <header className={styles.headerBG}>
+      <div className={`${styles.header} container`}>
         <h1 onClick={handleClick}>AÇAÍ</h1>
 
         <nav>
@@ -27,8 +27,8 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-      </header>
-    </div>
+      </div>
+    </header>
   );
 };
 
