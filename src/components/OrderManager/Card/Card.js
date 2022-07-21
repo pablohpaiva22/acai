@@ -67,7 +67,7 @@ const Card = () => {
         return (
           <div key={index} className={styles.card}>
             <div className={styles.header}>
-              <h3>{`ACAÍ ${item[0]}`}</h3>
+              <h3>{`AÇAÍ ${item[0]}`}</h3>
 
               <div className={styles.deleteEdit}>
                 <button
