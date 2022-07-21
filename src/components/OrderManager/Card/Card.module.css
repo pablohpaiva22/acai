@@ -17,6 +17,25 @@
   align-items: center;
 }
 
+.deleteEdit {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.edit {
+  background: url("../../../Assets/edit+1.png") no-repeat center;
+  border: none;
+  background-size: 24px 24px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.edit:hover {
+  transform: scale(1.125);
+  transition: 400ms;
+}
+
 .delete {
   background: url("../../../Assets/trash-bin.png") no-repeat center;
   border: none;

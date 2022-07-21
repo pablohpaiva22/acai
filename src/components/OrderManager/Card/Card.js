@@ -1,11 +1,24 @@
 import React from "react";
 import styles from "./Card.module.css";
 import { GlobalContext } from "../../../GlobalContext";
+import { useNavigate } from "react-router-dom";
 
 const Card = () => {
-  const { globs, setGlobs } = React.useContext(GlobalContext);
+  const {
+    globs,
+    setGlobs,
+    reset,
+    setSize,
+    setSizeNameList,
+    setTotalSize,
+    setTotal,
+    setIncrementNameList,
+    setIncrement,
+    setTotalIncrement,
+  } = React.useContext(GlobalContext);
+  const navigate = useNavigate();
 
-  const handleClick = (e) => {
+  const handleDeleteClick = (e) => {
     e.preventDefault();
 
     const deleteItem = globs.filter((item) => {
@@ -15,6 +28,39 @@ const Card = () => {
     setGlobs(deleteItem);
   };
 
+  const handleEditClick = (e) => {
+    e.preventDefault();
+
+    reset();
+
+    const targetInfo = globs.filter((item) => item[0] === +e.target.id);
+
+    setSize([targetInfo[0][1]]);
+    setSizeNameList(targetInfo[0][1].size);
+
+    setIncrement(targetInfo[0][2].map((item) => item));
+    setIncrementNameList(targetInfo[0][2].map((item) => item.name));
+
+    const totalSize = targetInfo[0][1].price;
+    setTotalSize(totalSize);
+
+    if (targetInfo[0][2].length !== 0) {
+      const incremento = targetInfo[0][2]
+        .map((item) => item.price)
+        .reduce((acc, item) => {
+          return acc + item;
+        });
+
+      setTotalIncrement(incremento);
+      setTotal(totalSize + incremento);
+      navigate(`/pedido/${e.target.id}`);
+    } else {
+      const incremento = 0;
+      setTotal(totalSize + incremento);
+      navigate(`/pedido/${e.target.id}`);
+    }
+  };
+
   return (
     <>
       {globs.map((item, index) => {
@@ -22,11 +68,20 @@ const Card = () => {
           <div key={index} className={styles.card}>
             <div className={styles.header}>
               <h3>{`ACAÍ ${item[0]}`}</h3>
-              <button
-                className={styles.delete}
-                id={item[0]}
-                onClick={handleClick}
-              ></button>
+
+              <div className={styles.deleteEdit}>
+                <button
+                  id={item[0]}
+                  className={styles.edit}
+                  onClick={handleEditClick}
+                ></button>
+
+                <button
+                  id={item[0]}
+                  className={styles.delete}
+                  onClick={handleDeleteClick}
+                ></button>
+              </div>
             </div>
 
             <div>

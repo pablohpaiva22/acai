@@ -9,6 +9,7 @@ import { GlobalStorage } from "./GlobalContext";
 import NewItem from "./components/NewItem/NewItem";
 import Print from "./components/Print/Print";
 import About from "./components/About/About";
+import Teste from "./components/Teste";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/teste" element={<Teste />} />
           <Route path="/sobre" element={<About />} />
           <Route path="/pedido" element={<OrderManager />} />
           <Route path="/pedido/:id" element={<NewItem />} />

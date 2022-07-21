@@ -40,7 +40,6 @@ export const GlobalStorage = ({ children }) => {
     setSize(size_DB);
 
     setSizeNameList(size_DB[0].size);
-
     setTotalSize(size_DB[0].price);
     setTotal(size_DB[0].price + totalIncrement);
   };
@@ -49,6 +48,7 @@ export const GlobalStorage = ({ children }) => {
     const TargetObject = IncrementList_DB.filter((item) => {
       return item.name === e.target.innerText;
     });
+
     const increment_DB = [];
 
     increment_DB.push(...increment);
@@ -106,10 +106,15 @@ export const GlobalStorage = ({ children }) => {
   };
 
   const createNewItem = (id) => {
+    const edit = globs.filter((item) => item[0] !== +id);
+
     const newItem_DB = [];
     newItem_DB.push([+id, ...size, increment, total]);
     const global_DB = [];
-    global_DB.push(...globs, ...newItem_DB);
+    global_DB.push(...edit, ...newItem_DB);
+
+    global_DB.sort();
+
     setGlobs(global_DB);
   };
 
@@ -143,6 +148,7 @@ export const GlobalStorage = ({ children }) => {
         globs,
         setGlobs,
         setTotalSize,
+        setTotalIncrement,
         reset,
         totalPedido,
       }}

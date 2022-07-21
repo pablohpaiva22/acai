@@ -52,3 +52,7 @@
 .nav a.active {
   color: var(--secondary-color-hover);
 }
+
+.nav a.active:hover:after {
+  opacity: 0;
+}
