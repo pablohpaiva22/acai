@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../GlobalContext";
 import Button from "../General/Button";
 import Card from "./Card/Card";
+import { Helmet } from "react-helmet";
 
 const OrderManager = () => {
   const { globs, reset, totalPedido } = React.useContext(GlobalContext);
@@ -44,6 +45,10 @@ const OrderManager = () => {
 
   return (
     <section className={`${styles.container} container`}>
+      <Helmet>
+        <title>AÇAÍ | Pedido</title>
+      </Helmet>
+
       <div className={styles.itensList}>
         <Card />
 

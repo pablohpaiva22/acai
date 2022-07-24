@@ -7,6 +7,7 @@ import SizeDescription from "./NewItemComponents/SizeDescription";
 import { GlobalContext } from "../../GlobalContext";
 import { useNavigate, useParams } from "react-router-dom";
 import Button from "../General/Button";
+import { Helmet } from "react-helmet";
 
 const NewItem = () => {
   const { showSize, showIncrement, total, createNewItem, size } =
@@ -37,6 +38,10 @@ const NewItem = () => {
 
   return (
     <section className={`${styles.home} container`}>
+      <Helmet>
+        <title>AÇAÍ | Novo</title>
+      </Helmet>
+
       <div className={styles.firstBox}>
         <h2 className={styles.firstBoxTitle}>ESCOLHA O TAMANHO</h2>
 

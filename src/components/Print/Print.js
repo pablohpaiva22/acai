@@ -3,6 +3,7 @@ import styles from "./Print.module.css";
 import { useNavigate } from "react-router-dom";
 import Receit from "./Receit/Receit";
 import { GlobalContext } from "../../GlobalContext";
+import { Helmet } from "react-helmet";
 
 const Print = () => {
   const navigate = useNavigate();
@@ -30,6 +31,10 @@ const Print = () => {
 
   return (
     <div className={`${styles.container} container`}>
+      <Helmet>
+        <title>AÇAÍ | Imprimir</title>
+      </Helmet>
+
       <header className={styles.btnBox}>
         <button className={styles.button} onClick={handleBackClick}>
           Voltar
