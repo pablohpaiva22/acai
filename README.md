@@ -1,8 +1,12 @@
 # AÇAÍ
 Sistema desenvolvido para auxiliar o lojista na emissão de novos pedidos.
 
-## Baixe as dependências
+## Instale as dependências
+```
 npm install
+```
 
-## Rode o projeto
+## Inicie o projeto
+```
 npm start
+```
