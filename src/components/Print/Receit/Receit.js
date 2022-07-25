@@ -1,10 +1,14 @@
 import React from "react";
 import styles from "./Receit.module.css";
-import { GlobalContext } from "../../../GlobalContext";
 import Item from "./Item";
+import useTotal from "../../../Hooks/useTotal";
 
 const Receit = () => {
-  const { totalPedido } = React.useContext(GlobalContext);
+  const { getTotal, totalOrder } = useTotal();
+
+  React.useEffect(() => {
+    getTotal();
+  }, [getTotal]);
 
   return (
     <div className={styles.container}>
@@ -14,7 +18,7 @@ const Receit = () => {
 
       <div className={styles.totalPedido}>
         <span>Total</span>
-        <span>{`R$ ${totalPedido},00`}</span>
+        <span>{`R$ ${totalOrder},00`}</span>
       </div>
 
       <footer className={styles.footer}>

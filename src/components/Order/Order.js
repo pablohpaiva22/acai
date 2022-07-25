@@ -7,29 +7,18 @@ import Card from "./Card/Card";
 import Error from "../Utilities/Error";
 import Button from "../Utilities/Button";
 import useSetGlobal from "../../Hooks/useSetGlobal";
+import useTotal from "../../Hooks/useTotal";
 
 const Order = () => {
   const { finalInfo } = React.useContext(GlobalContext);
   const setGlobal = useSetGlobal();
+  const { totalOrder, getTotal } = useTotal();
   const [error, setError] = React.useState(false);
   const navigate = useNavigate();
-  const [totalOrder, setTotalOrder] = React.useState(0);
 
   React.useEffect(() => {
-    if (finalInfo.length !== 0) {
-      const getTotal = finalInfo
-        .map((item) => {
-          return item[3];
-        })
-        .reduce((acc, item) => {
-          return acc + item;
-        });
-
-      setTotalOrder(getTotal);
-    } else {
-      setTotalOrder(0);
-    }
-  }, [finalInfo]);
+    getTotal();
+  }, [getTotal]);
 
   const handleNewItemClick = () => {
     let id = 1;
@@ -66,8 +55,6 @@ const Order = () => {
     setError(true);
     navigate("/pedido/imprimir");
   };
-
-  console.log(finalInfo);
 
   return (
     <section className={`${styles.container} container`}>
