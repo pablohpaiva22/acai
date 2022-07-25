@@ -1,17 +1,18 @@
 import React from "react";
-import styles from "./OrderManager.module.css";
+import styles from "./Order.module.css";
+import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../GlobalContext";
-import Button from "../Utilities/Button";
 import Card from "./Card/Card";
-import { Helmet } from "react-helmet";
+import Error from "../Utilities/Error";
+import Button from "../Utilities/Button";
 
-const OrderManager = () => {
+const Order = () => {
   const { finalInfo, reset, totalPedido } = React.useContext(GlobalContext);
   const [error, setError] = React.useState(false);
   const navigate = useNavigate();
 
-  const handleClick = () => {
+  const handleNewItemClick = () => {
     let id = 1;
 
     if (finalInfo.length === 0) {
@@ -20,13 +21,17 @@ const OrderManager = () => {
       return true;
     }
 
-    const get_id = finalInfo.map((item) => {
-      return item[0];
-    });
+    const new_id = () => {
+      const id_list = finalInfo.map((item) => {
+        return item[0];
+      });
 
-    const new_id = Math.max(...get_id);
-    id += new_id;
+      const biggest_id = Math.max(...id_list);
+      id += biggest_id;
+      return id;
+    };
 
+    new_id();
     reset();
     navigate(`/pedido/${id}`);
   };
@@ -49,18 +54,18 @@ const OrderManager = () => {
         <title>AÇAÍ | Pedido</title>
       </Helmet>
 
-      <div className={styles.itensList}>
+      <div className={styles.cards}>
         <Card />
 
         <div className={styles.card}>
-          <button onClick={handleClick}></button>
+          <button onClick={handleNewItemClick}></button>
         </div>
       </div>
 
       <div className={styles.total}>
         <span>TOTAL: </span>
         <span>{`R$ ${totalPedido},00`}</span>
-        {error && <p className={styles.error}>Insira pelo menos 1 item.</p>}
+        {error && <Error>Insira pelo menos 1 item.</Error>}
       </div>
 
       <Button onClick={handleEndClick} />
@@ -68,4 +73,4 @@ const OrderManager = () => {
   );
 };
 
-export default OrderManager;
+export default Order;

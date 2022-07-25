@@ -4,7 +4,7 @@ import "./App.css";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import OrderManager from "./components/OrderManager/OrderManager";
+import Order from "./components/Order/Order";
 import { GlobalStorage } from "./GlobalContext";
 import NewItem from "./components/NewItem/NewItem";
 import Print from "./components/Print/Print";
@@ -20,7 +20,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/teste" element={<Teste testando="butão" />} />
           <Route path="/sobre" element={<About />} />
-          <Route path="/pedido" element={<OrderManager />} />
+          <Route path="/pedido" element={<Order />} />
           <Route path="/pedido/:id" element={<NewItem />} />
           <Route path="/pedido/imprimir" element={<Print />} />
         </Routes>
