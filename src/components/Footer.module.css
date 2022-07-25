@@ -1,13 +1,11 @@
-.footerBG {
-  background: var(--primary-color);
-}
-
 .footer {
   height: 10vh;
   background-color: var(--primary-color);
-  color: #fff;
-  text-align: center;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+}
+
+.text {
+  color: #fff;
 }
