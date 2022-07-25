@@ -8,14 +8,14 @@
   background: #fff;
 }
 
-.container p {
+.message {
   display: block;
   font-size: 2rem;
   font-weight: bold;
-  color: var(--primary-color);
+  color: #000;
 }
 
-.play {
+.button {
   display: block;
   width: 74px;
   height: 74px;
@@ -26,7 +26,7 @@
   cursor: pointer;
 }
 
-.play:hover {
+.button:hover {
   border-color: #fff var(--secondary-color-hover) #fff
     var(--secondary-color-hover);
 }

@@ -18,9 +18,9 @@ const Home = () => {
         <title>AÇAÍ</title>
       </Helmet>
 
-      <p>SEJA BEM VINDO!</p>
+      <p className={styles.message}>SEJA BEM VINDO!</p>
 
-      <button onClick={handleClick} className={styles.play}></button>
+      <button onClick={handleClick} className={styles.button}></button>
     </section>
   );
 };
