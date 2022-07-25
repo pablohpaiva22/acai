@@ -30,35 +30,36 @@ const Card = () => {
 
   const handleEditClick = (e) => {
     e.preventDefault();
+    const cardInfo = finalInfo.filter((item) => item[0] === +e.target.id);
+
+    const setEditInfo = () => {
+      setSize([cardInfo[0][1]]);
+      setSizeNameList(cardInfo[0][1].size);
+
+      setIncrement(cardInfo[0][2].map((item) => item));
+      setIncrementNameList(cardInfo[0][2].map((item) => item.name));
+
+      const totalSize = cardInfo[0][1].price;
+      setTotalSize(totalSize);
+
+      if (cardInfo[0][2].length !== 0) {
+        const incremento = cardInfo[0][2]
+          .map((item) => item.price)
+          .reduce((acc, item) => {
+            return acc + item;
+          });
+
+        setTotalIncrement(incremento);
+        setTotal(totalSize + incremento);
+      } else {
+        const incremento = 0;
+        setTotal(totalSize + incremento);
+      }
+    };
 
     reset();
-
-    const targetInfo = finalInfo.filter((item) => item[0] === +e.target.id);
-
-    setSize([targetInfo[0][1]]);
-    setSizeNameList(targetInfo[0][1].size);
-
-    setIncrement(targetInfo[0][2].map((item) => item));
-    setIncrementNameList(targetInfo[0][2].map((item) => item.name));
-
-    const totalSize = targetInfo[0][1].price;
-    setTotalSize(totalSize);
-
-    if (targetInfo[0][2].length !== 0) {
-      const incremento = targetInfo[0][2]
-        .map((item) => item.price)
-        .reduce((acc, item) => {
-          return acc + item;
-        });
-
-      setTotalIncrement(incremento);
-      setTotal(totalSize + incremento);
-      navigate(`/pedido/${e.target.id}`);
-    } else {
-      const incremento = 0;
-      setTotal(totalSize + incremento);
-      navigate(`/pedido/${e.target.id}`);
-    }
+    setEditInfo();
+    navigate(`/pedido/${e.target.id}`);
   };
 
   return (
@@ -69,7 +70,7 @@ const Card = () => {
             <div className={styles.header}>
               <h3>{`AÇAÍ ${item[0]}`}</h3>
 
-              <div className={styles.deleteEdit}>
+              <div className={styles.containerDeleteEdit}>
                 <button
                   id={item[0]}
                   className={styles.edit}

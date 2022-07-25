@@ -17,7 +17,7 @@
   align-items: center;
 }
 
-.deleteEdit {
+.containerDeleteEdit {
   display: flex;
   gap: 0.8rem;
 }
