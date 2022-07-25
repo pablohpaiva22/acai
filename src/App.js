@@ -1,15 +1,15 @@
 import React from "react";
-import Header from "./components/Header";
+import Header from "./Components/Header";
 import "./App.css";
-import Footer from "./components/Footer";
-import Home from "./components/Home";
+import Footer from "./Components/Footer";
+import Home from "./Components/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Order from "./components/Order/Order";
+import Order from "./Components/Order/Order";
 import { GlobalStorage } from "./GlobalContext";
-import NewItem from "./components/NewItem/NewItem";
-import Print from "./components/Print/Print";
-import About from "./components/About/About";
-import Teste from "./components/Teste";
+import NewItem from "./Components/NewItem/NewItem";
+import Print from "./Components/Print/Print";
+import About from "./Components/About/About";
+import Teste from "./Components/Teste";
 
 function App() {
   return (

@@ -6,9 +6,11 @@ import { GlobalContext } from "../../GlobalContext";
 import Card from "./Card/Card";
 import Error from "../Utilities/Error";
 import Button from "../Utilities/Button";
+import useSetGlobal from "../../Hooks/useSetGlobal";
 
 const Order = () => {
-  const { finalInfo, reset, totalPedido } = React.useContext(GlobalContext);
+  const { finalInfo, totalPedido } = React.useContext(GlobalContext);
+  const setGlobal = useSetGlobal();
   const [error, setError] = React.useState(false);
   const navigate = useNavigate();
 
@@ -16,7 +18,7 @@ const Order = () => {
     let id = 1;
 
     if (finalInfo.length === 0) {
-      reset();
+      setGlobal.resetNewItem();
       navigate(`/pedido/${id}`);
       return true;
     }
@@ -32,7 +34,7 @@ const Order = () => {
     };
 
     new_id();
-    reset();
+    setGlobal.resetNewItem();
     navigate(`/pedido/${id}`);
   };
 

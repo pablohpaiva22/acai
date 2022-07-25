@@ -2,20 +2,11 @@ import React from "react";
 import styles from "./Card.module.css";
 import { GlobalContext } from "../../../GlobalContext";
 import { useNavigate } from "react-router-dom";
+import useSetGlobal from "../../../Hooks/useSetGlobal";
 
 const Card = () => {
-  const {
-    finalInfo,
-    setFinalInfo,
-    reset,
-    setSize,
-    setSizeNameList,
-    setTotalSize,
-    setTotal,
-    setIncrementNameList,
-    setIncrement,
-    setTotalIncrement,
-  } = React.useContext(GlobalContext);
+  const { finalInfo, setFinalInfo } = React.useContext(GlobalContext);
+  const setGlobal = useSetGlobal();
   const navigate = useNavigate();
 
   const handleDeleteClick = (e) => {
@@ -32,33 +23,9 @@ const Card = () => {
     e.preventDefault();
     const cardInfo = finalInfo.filter((item) => item[0] === +e.target.id);
 
-    const setEditInfo = () => {
-      setSize([cardInfo[0][1]]);
-      setSizeNameList(cardInfo[0][1].size);
+    setGlobal.resetNewItem();
+    setGlobal.setEditInfo(cardInfo);
 
-      setIncrement(cardInfo[0][2].map((item) => item));
-      setIncrementNameList(cardInfo[0][2].map((item) => item.name));
-
-      const totalSize = cardInfo[0][1].price;
-      setTotalSize(totalSize);
-
-      if (cardInfo[0][2].length !== 0) {
-        const incremento = cardInfo[0][2]
-          .map((item) => item.price)
-          .reduce((acc, item) => {
-            return acc + item;
-          });
-
-        setTotalIncrement(incremento);
-        setTotal(totalSize + incremento);
-      } else {
-        const incremento = 0;
-        setTotal(totalSize + incremento);
-      }
-    };
-
-    reset();
-    setEditInfo();
     navigate(`/pedido/${e.target.id}`);
   };
 

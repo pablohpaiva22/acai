@@ -1,5 +1,5 @@
 import React from "react";
-import { sizeList_DB, IncrementList_DB } from "./components/NewItem/database";
+import { sizeList_DB, IncrementList_DB } from "./Components/NewItem/database";
 
 export const GlobalContext = React.createContext();
 
@@ -118,16 +118,6 @@ export const GlobalStorage = ({ children }) => {
     setFinalInfo(global_DB);
   };
 
-  const reset = () => {
-    setSize([]);
-    setIncrement([]);
-    setIncrementNameList("");
-    setSizeNameList("");
-    setTotal(0);
-    setTotalSize(0);
-    setTotalIncrement(0);
-  };
-
   return (
     <GlobalContext.Provider
       value={{
@@ -149,7 +139,6 @@ export const GlobalStorage = ({ children }) => {
         setFinalInfo,
         setTotalSize,
         setTotalIncrement,
-        reset,
         totalPedido,
       }}
     >
