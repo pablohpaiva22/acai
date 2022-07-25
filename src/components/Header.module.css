@@ -1,8 +1,8 @@
-.headerBG {
+.header {
   background: var(--primary-color);
 }
 
-.header {
+.container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,18 +11,17 @@
   height: 10vh;
 }
 
-.header h1 {
+.logo {
   cursor: pointer;
-}
-
-.nav {
-  display: flex;
-  gap: 1rem;
 }
 
 .nav a {
   color: #fff;
   position: relative;
+}
+
+.nav a.active {
+  color: var(--secondary-color-hover);
 }
 
 .nav a:hover:after {
@@ -33,26 +32,18 @@
   position: absolute;
   bottom: -2px;
   left: 0;
-  animation: hov 1s forwards;
+  animation: hover 1s forwards;
 }
 
 .nav a.active:hover:after {
-  background: var(--secondary-color-hover);
+  opacity: 0;
 }
 
-@keyframes hov {
+@keyframes hover {
   from {
     width: 0;
   }
   to {
     width: 40;
   }
-}
-
-.nav a.active {
-  color: var(--secondary-color-hover);
-}
-
-.nav a.active:hover:after {
-  opacity: 0;
 }

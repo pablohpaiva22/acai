@@ -13,23 +13,19 @@ const Header = () => {
   };
 
   return (
-    <header className={styles.headerBG}>
-      <div className={`${styles.header} container`}>
-        <h1 onClick={handleClick}>AÇAÍ</h1>
+    <header className={styles.header}>
+      <div className={`${styles.container} container`}>
+        <h1 className={styles.logo} onClick={handleClick}>
+          AÇAÍ
+        </h1>
 
-        <nav>
-          <ul className={styles.nav}>
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? styles.active : undefined
-                }
-                to="/sobre"
-              >
-                SOBRE
-              </NavLink>
-            </li>
-          </ul>
+        <nav className={styles.nav}>
+          <NavLink
+            className={({ isActive }) => (isActive ? styles.active : undefined)}
+            to="/sobre"
+          >
+            SOBRE
+          </NavLink>
         </nav>
       </div>
     </header>
