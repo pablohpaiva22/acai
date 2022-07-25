@@ -6,7 +6,7 @@ import SizeList from "./NewItemComponents/SizeList";
 import SizeDescription from "./NewItemComponents/SizeDescription";
 import { GlobalContext } from "../../GlobalContext";
 import { useNavigate, useParams } from "react-router-dom";
-import Button from "../General/Button";
+import Button from "../Utilities/Button";
 import { Helmet } from "react-helmet";
 
 const NewItem = () => {

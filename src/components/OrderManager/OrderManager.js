@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./OrderManager.module.css";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../GlobalContext";
-import Button from "../General/Button";
+import Button from "../Utilities/Button";
 import Card from "./Card/Card";
 import { Helmet } from "react-helmet";
 
