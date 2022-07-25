@@ -5,10 +5,10 @@ import { GlobalContext } from "../GlobalContext";
 
 const Header = () => {
   const navigate = useNavigate();
-  const { setGlobs } = React.useContext(GlobalContext);
+  const { setFinalInfo } = React.useContext(GlobalContext);
 
   const handleClick = () => {
-    setGlobs([]);
+    setFinalInfo([]);
     navigate("/");
   };
 

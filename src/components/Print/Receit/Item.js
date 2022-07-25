@@ -3,11 +3,11 @@ import styles from "./Item.module.css";
 import { GlobalContext } from "../../../GlobalContext";
 
 const Item = () => {
-  const { globs } = React.useContext(GlobalContext);
+  const { finalInfo } = React.useContext(GlobalContext);
 
   return (
     <div className={styles.itemBox}>
-      {globs.map((item, index) => {
+      {finalInfo.map((item, index) => {
         return (
           <div key={index} className={styles.item}>
             <h3 className={styles.title}>{`ACAÍ ${item[0]}`}</h3>

@@ -11,12 +11,12 @@ export const GlobalStorage = ({ children }) => {
   const [incrementNameList, setIncrementNameList] = React.useState("");
   const [sizeNameList, setSizeNameList] = React.useState("");
   const [total, setTotal] = React.useState(0);
-  const [globs, setGlobs] = React.useState([]);
+  const [finalInfo, setFinalInfo] = React.useState([]);
   const [totalPedido, setTotalPedido] = React.useState(0);
 
   React.useEffect(() => {
-    if (globs.length !== 0) {
-      const getTotal = globs
+    if (finalInfo.length !== 0) {
+      const getTotal = finalInfo
         .map((item) => {
           return item[3];
         })
@@ -28,7 +28,7 @@ export const GlobalStorage = ({ children }) => {
     } else {
       setTotalPedido(0);
     }
-  }, [globs]);
+  }, [finalInfo]);
 
   const showSize = (e) => {
     const TargetObject = sizeList_DB.filter((item) => {
@@ -106,7 +106,7 @@ export const GlobalStorage = ({ children }) => {
   };
 
   const createNewItem = (id) => {
-    const edit = globs.filter((item) => item[0] !== +id);
+    const edit = finalInfo.filter((item) => item[0] !== +id);
 
     const newItem_DB = [];
     newItem_DB.push([+id, ...size, increment, total]);
@@ -115,7 +115,7 @@ export const GlobalStorage = ({ children }) => {
 
     global_DB.sort();
 
-    setGlobs(global_DB);
+    setFinalInfo(global_DB);
   };
 
   const reset = () => {
@@ -145,8 +145,8 @@ export const GlobalStorage = ({ children }) => {
         createNewItem,
         setSize,
         setIncrement,
-        globs,
-        setGlobs,
+        finalInfo,
+        setFinalInfo,
         setTotalSize,
         setTotalIncrement,
         reset,

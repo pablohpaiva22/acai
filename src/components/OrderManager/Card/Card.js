@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 const Card = () => {
   const {
-    globs,
-    setGlobs,
+    finalInfo,
+    setFinalInfo,
     reset,
     setSize,
     setSizeNameList,
@@ -21,11 +21,11 @@ const Card = () => {
   const handleDeleteClick = (e) => {
     e.preventDefault();
 
-    const deleteItem = globs.filter((item) => {
+    const deleteItem = finalInfo.filter((item) => {
       return item[0] !== +e.target.id;
     });
 
-    setGlobs(deleteItem);
+    setFinalInfo(deleteItem);
   };
 
   const handleEditClick = (e) => {
@@ -33,7 +33,7 @@ const Card = () => {
 
     reset();
 
-    const targetInfo = globs.filter((item) => item[0] === +e.target.id);
+    const targetInfo = finalInfo.filter((item) => item[0] === +e.target.id);
 
     setSize([targetInfo[0][1]]);
     setSizeNameList(targetInfo[0][1].size);
@@ -63,7 +63,7 @@ const Card = () => {
 
   return (
     <>
-      {globs.map((item, index) => {
+      {finalInfo.map((item, index) => {
         return (
           <div key={index} className={styles.card}>
             <div className={styles.header}>

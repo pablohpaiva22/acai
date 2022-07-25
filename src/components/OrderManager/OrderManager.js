@@ -7,20 +7,20 @@ import Card from "./Card/Card";
 import { Helmet } from "react-helmet";
 
 const OrderManager = () => {
-  const { globs, reset, totalPedido } = React.useContext(GlobalContext);
+  const { finalInfo, reset, totalPedido } = React.useContext(GlobalContext);
   const [error, setError] = React.useState(false);
   const navigate = useNavigate();
 
   const handleClick = () => {
     let id = 1;
 
-    if (globs.length === 0) {
+    if (finalInfo.length === 0) {
       reset();
       navigate(`/pedido/${id}`);
       return true;
     }
 
-    const get_id = globs.map((item) => {
+    const get_id = finalInfo.map((item) => {
       return item[0];
     });
 
@@ -34,7 +34,7 @@ const OrderManager = () => {
   const handleEndClick = () => {
     setError(false);
 
-    if (globs.length === 0) {
+    if (finalInfo.length === 0) {
       setError(true);
       return true;
     }

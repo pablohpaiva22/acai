@@ -7,16 +7,16 @@ import { Helmet } from "react-helmet";
 
 const Print = () => {
   const navigate = useNavigate();
-  const { globs, setGlobs } = React.useContext(GlobalContext);
+  const { finalInfo, setFinalInfo } = React.useContext(GlobalContext);
   const [btn, setBtn] = React.useState(false);
 
   React.useEffect(() => {
     setBtn(false);
 
-    if (globs.length > 3) {
+    if (finalInfo.length > 3) {
       setBtn(true);
     }
-  }, [globs.length, setBtn]);
+  }, [finalInfo.length, setBtn]);
 
   const handleBackClick = () => {
     navigate("/pedido");
@@ -25,7 +25,7 @@ const Print = () => {
   const handlePrintClick = () => {
     alert("Imprimindo...");
 
-    setGlobs([]);
+    setFinalInfo([]);
     navigate("/pedido");
   };
 
