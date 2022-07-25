@@ -8,7 +8,8 @@ const About = () => {
       <Helmet>
         <title>AÇAÍ | Sobre</title>
       </Helmet>
-      <p>
+
+      <p className={styles.text}>
         Sistema desenvolvido para auxiliar o lojista de açaí na emissão de novos
         pedidos.
       </p>
