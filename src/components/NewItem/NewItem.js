@@ -1,12 +1,13 @@
 import React from "react";
 import styles from "./NewItem.module.css";
-import IncrementList from "./NewItemComponents/IncrementList";
-import IncrementDescription from "./NewItemComponents/IncrementDescription";
-import SizeList from "./NewItemComponents/SizeList";
-import SizeDescription from "./NewItemComponents/SizeDescription";
+import IncrementList from "./Increment/IncrementList";
+import IncrementDescription from "./Increment/IncrementDescription";
+import SizeList from "./Size/SizeList";
+import SizeDescription from "./Size/SizeDescription";
 import { GlobalContext } from "../../GlobalContext";
 import { useNavigate, useParams } from "react-router-dom";
 import Button from "../Utilities/Button";
+import Error from "../Utilities/Error";
 import { Helmet } from "react-helmet";
 
 const NewItem = () => {
@@ -37,7 +38,7 @@ const NewItem = () => {
   };
 
   return (
-    <section className={`${styles.home} container`}>
+    <section className={`${styles.container} container`}>
       <Helmet>
         <title>AÇAÍ | Novo</title>
       </Helmet>
@@ -64,7 +65,7 @@ const NewItem = () => {
 
         <Button onClick={handleOrderClick} />
 
-        {error && <p className={styles.error}>Escolha um tamanho</p>}
+        {error && <Error>Escolha um tamanho</Error>}
       </div>
     </section>
   );
