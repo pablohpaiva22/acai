@@ -9,10 +9,27 @@ import Button from "../Utilities/Button";
 import useSetGlobal from "../../Hooks/useSetGlobal";
 
 const Order = () => {
-  const { finalInfo, totalPedido } = React.useContext(GlobalContext);
+  const { finalInfo } = React.useContext(GlobalContext);
   const setGlobal = useSetGlobal();
   const [error, setError] = React.useState(false);
   const navigate = useNavigate();
+  const [totalOrder, setTotalOrder] = React.useState(0);
+
+  React.useEffect(() => {
+    if (finalInfo.length !== 0) {
+      const getTotal = finalInfo
+        .map((item) => {
+          return item[3];
+        })
+        .reduce((acc, item) => {
+          return acc + item;
+        });
+
+      setTotalOrder(getTotal);
+    } else {
+      setTotalOrder(0);
+    }
+  }, [finalInfo]);
 
   const handleNewItemClick = () => {
     let id = 1;
@@ -50,6 +67,8 @@ const Order = () => {
     navigate("/pedido/imprimir");
   };
 
+  console.log(finalInfo);
+
   return (
     <section className={`${styles.container} container`}>
       <Helmet>
@@ -66,7 +85,7 @@ const Order = () => {
 
       <div className={styles.total}>
         <span>TOTAL: </span>
-        <span>{`R$ ${totalPedido},00`}</span>
+        <span>{`R$ ${totalOrder},00`}</span>
         {error && <Error>Insira pelo menos 1 item.</Error>}
       </div>
 

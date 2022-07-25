@@ -12,23 +12,6 @@ export const GlobalStorage = ({ children }) => {
   const [sizeNameList, setSizeNameList] = React.useState("");
   const [total, setTotal] = React.useState(0);
   const [finalInfo, setFinalInfo] = React.useState([]);
-  const [totalPedido, setTotalPedido] = React.useState(0);
-
-  React.useEffect(() => {
-    if (finalInfo.length !== 0) {
-      const getTotal = finalInfo
-        .map((item) => {
-          return item[3];
-        })
-        .reduce((acc, item) => {
-          return acc + item;
-        });
-
-      setTotalPedido(getTotal);
-    } else {
-      setTotalPedido(0);
-    }
-  }, [finalInfo]);
 
   const showSize = (e) => {
     const TargetObject = sizeList_DB.filter((item) => {
@@ -122,24 +105,23 @@ export const GlobalStorage = ({ children }) => {
     <GlobalContext.Provider
       value={{
         size,
-        increment,
-        totalIncrement,
+        setSize,
+        showSize,
+        setTotalSize,
         sizeNameList,
-        setIncrementNameList,
         setSizeNameList,
+        increment,
+        setIncrement,
+        showIncrement,
+        totalIncrement,
+        setIncrementNameList,
+        setTotalIncrement,
         incrementNameList,
         total,
         setTotal,
-        showIncrement,
-        showSize,
         createNewItem,
-        setSize,
-        setIncrement,
         finalInfo,
         setFinalInfo,
-        setTotalSize,
-        setTotalIncrement,
-        totalPedido,
       }}
     >
       {children}
