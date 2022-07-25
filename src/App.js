@@ -18,7 +18,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/teste" element={<Teste />} />
+          <Route path="/teste" element={<Teste testando="butão" />} />
           <Route path="/sobre" element={<About />} />
           <Route path="/pedido" element={<OrderManager />} />
           <Route path="/pedido/:id" element={<NewItem />} />

@@ -16,7 +16,7 @@ export default class Teste extends Component {
   render() {
     return (
       <div className={`${styles.container} container`}>
-        <button onClick={this.handleClick}>hello</button>
+        <button onClick={this.handleClick}>{this.props.testando}</button>
         <p>{this.state.contar}</p>
       </div>
     );
