@@ -11,8 +11,8 @@ const IncrementDescription = () => {
       <ul className={styles.itensList}>
         {increment.map(({ name }, index) => {
           return (
-            <li key={index}>
-              <p>{name}</p>
+            <li className={styles.nameBox} key={index}>
+              <p className={styles.name}>{name}</p>
             </li>
           );
         })}

@@ -8,12 +8,12 @@
   margin-bottom: 0.25rem;
 }
 
-.itensList li {
+.nameBox {
   display: flex;
   gap: 1rem;
 }
 
-.itensList li p {
+.name {
   font-size: 1rem;
   margin-bottom: 0.25rem;
   padding-left: 0.25rem;
