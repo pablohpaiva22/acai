@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/acai/static/css/main.3b9025e2.css",
-    "main.js": "/acai/static/js/main.b21500cf.js",
+    "main.js": "/acai/static/js/main.1dfb6cf8.js",
     "static/media/trash-bin.png": "/acai/static/media/trash-bin.fca0dbd588685122116b.png",
     "static/media/edit+1.png": "/acai/static/media/edit+1.0f46e2728eb984e21ce8.png",
     "index.html": "/acai/index.html",
     "main.3b9025e2.css.map": "/acai/static/css/main.3b9025e2.css.map",
-    "main.b21500cf.js.map": "/acai/static/js/main.b21500cf.js.map"
+    "main.1dfb6cf8.js.map": "/acai/static/js/main.1dfb6cf8.js.map"
   },
   "entrypoints": [
     "static/css/main.3b9025e2.css",
-    "static/js/main.b21500cf.js"
+    "static/js/main.1dfb6cf8.js"
   ]
 }
