@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": ".https://pablohpaiva22.github.io/static/css/main.3c6bc52c.css",
-    "main.js": ".https://pablohpaiva22.github.io/static/js/main.b21500cf.js",
-    "static/media/trash-bin.png": ".https://pablohpaiva22.github.io/static/media/trash-bin.fca0dbd588685122116b.png",
-    "static/media/edit+1.png": ".https://pablohpaiva22.github.io/static/media/edit+1.0f46e2728eb984e21ce8.png",
-    "index.html": ".https://pablohpaiva22.github.io/index.html",
-    "main.3c6bc52c.css.map": ".https://pablohpaiva22.github.io/static/css/main.3c6bc52c.css.map",
-    "main.b21500cf.js.map": ".https://pablohpaiva22.github.io/static/js/main.b21500cf.js.map"
+    "main.css": "/acai/static/css/main.3b9025e2.css",
+    "main.js": "/acai/static/js/main.b21500cf.js",
+    "static/media/trash-bin.png": "/acai/static/media/trash-bin.fca0dbd588685122116b.png",
+    "static/media/edit+1.png": "/acai/static/media/edit+1.0f46e2728eb984e21ce8.png",
+    "index.html": "/acai/index.html",
+    "main.3b9025e2.css.map": "/acai/static/css/main.3b9025e2.css.map",
+    "main.b21500cf.js.map": "/acai/static/js/main.b21500cf.js.map"
   },
   "entrypoints": [
-    "static/css/main.3c6bc52c.css",
+    "static/css/main.3b9025e2.css",
     "static/js/main.b21500cf.js"
   ]
 }
