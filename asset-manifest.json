@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": ".https://pablohpaiva22.github.io/acai/static/css/main.3c6bc52c.css",
+    "main.js": ".https://pablohpaiva22.github.io/acai/static/js/main.b21500cf.js",
+    "static/media/trash-bin.png": ".https://pablohpaiva22.github.io/acai/static/media/trash-bin.fca0dbd588685122116b.png",
+    "static/media/edit+1.png": ".https://pablohpaiva22.github.io/acai/static/media/edit+1.0f46e2728eb984e21ce8.png",
+    "index.html": ".https://pablohpaiva22.github.io/acai/index.html",
+    "main.3c6bc52c.css.map": ".https://pablohpaiva22.github.io/acai/static/css/main.3c6bc52c.css.map",
+    "main.b21500cf.js.map": ".https://pablohpaiva22.github.io/acai/static/js/main.b21500cf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3c6bc52c.css",
+    "static/js/main.b21500cf.js"
+  ]
+}
