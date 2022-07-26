@@ -19,6 +19,7 @@ function App() {
         <Routes>
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
+          <Route path="/acai" element={<Home />} />
           <Route path="/sobre" element={<About />} />
           <Route path="/pedido" element={<Order />} />
           <Route path="/pedido/:id" element={<NewItem />} />

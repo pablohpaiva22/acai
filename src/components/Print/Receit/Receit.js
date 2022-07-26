@@ -12,7 +12,7 @@ const Receit = () => {
 
   return (
     <div className={styles.container}>
-      <header className={styles.header}>AÇAÍ MANAGER</header>
+      <header className={styles.header}>AÇAÍ</header>
 
       <Item />
 
