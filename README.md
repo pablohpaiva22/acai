@@ -1,5 +1,5 @@
 # AÇAÍ
-Sistema desenvolvido para auxiliar o lojista na emissão de novos pedidos.
+Sistema desenvolvido para auxiliar o lojista na emissão de novos pedidos
 
 ## Instale as dependências
 ```
