@@ -1,5 +1,7 @@
 # AÇAÍ
-Sistema desenvolvido para auxiliar o lojista na emissão de novos pedidos
+Sistema desenvolvido em React para auxiliar o lojista na emissão de novos pedidos.
+
+Hooks, React Router, React Helmet, Context API.
 
 ## Instale as dependências
 ```
