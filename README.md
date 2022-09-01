@@ -3,6 +3,8 @@ Sistema desenvolvido em React para auxiliar o lojista na emissão de novos pedid
 
 Hooks, React Router, React Helmet, Context API.
 
+https://pablohpaiva22.github.io/acai/
+
 ## Instale as dependências
 ```
 npm install
